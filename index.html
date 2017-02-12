@@ -11,6 +11,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script type="text/javascript" src="js/start.js"></script>
+  <% import wolframalpha %>
 
 </head>
 <body>
@@ -35,7 +36,8 @@
         <label id="status_label">Press the mic and speak</label>
         <div class="input-field col s12">
                 
-            <input id="equation_field" type="text">
+            <input id="equation_field" type="text" value="{{ result }}">
+
             
           </div>
 
@@ -71,12 +73,8 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Team Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
-
-
-
+          <p class="grey-text text-lighten-4"> We are a team of college students working on this project.</p>
         </div>
-        
       </div>
     </div>
     <div class="footer-copyright">
@@ -85,7 +83,7 @@
       </div>
     </div>
   </footer>
-
+  <!-- Python script -->
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
