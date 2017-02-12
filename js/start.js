@@ -104,6 +104,8 @@ $(function () {
 
 	$("#listen-btn").click(function (){
     $("#meme").hide();
+    $("#img_result").hide(); 
+
 		if (recognizing) {
 			$("#listen-btn").removeClass("red");
       if (final_transcript.length != 0){
