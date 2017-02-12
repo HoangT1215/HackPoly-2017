@@ -270,12 +270,13 @@ if (!('webkitSpeechRecognition' in window)) {
   start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
-  recognition.interimResults = true;
+  recognition.interimResults = false;
 
   recognition.onstart = function() {
     recognizing = true;
     showInfo('info_speak_now');
     start_img.src = 'img/mic-animate.gif';
+    console.log("pressed")
   };
 
   recognition.onerror = function(event) {
