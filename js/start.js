@@ -22,7 +22,7 @@ $(function () {
   		recognition.interimResults = true;
   		recognition.onstart = function() {
     	recognizing = true;
-    	$("#status_label").html('Listening <img src="img/listening.svg"</img> Press mic again to compute');
+    	$("#status_label").html('Listening <img src="img/listening.svg"</img> <br/> Press mic again or say "search" to compute <br/> Say "cancel" to abort');
     	
     };
     recognition.onerror = function(event) {
@@ -82,6 +82,12 @@ $(function () {
       console.log("canceling");
       cancelRequest();
     }
+    else if (final_transcript.toLowerCase().endsWith("search")) {
+      console.log("searching");
+      StartSearching();
+
+    }
+
     else if (final_transcript === "hack poly" || final_transcript === "hackpoly") {
       updateStatusForMeme("img/hackpolymeme.png");
     }
@@ -146,6 +152,24 @@ $(function () {
     recognition.stop();
     $("#listen-btn").removeClass("red");
     recognizing = false;
+  }
+  function StartSearching() {
+    recognition.stop();
+    $("#listen-btn").removeClass("red");
+    recognizing = false;
+    var n = final_transcript.length;
+      final_transcript = final_transcript.substring(0,n-7);
+      console.log(final_transcript);
+      var query = encodeURIComponent(final_transcript.toLowerCase());
+        $("#loading_gif").show();
+        $("#img_result").show();
+        $("#img_result").attr("src", baseURL+query);
+        $("#img_result")
+            .on('load', function() { $("#loading_gif").hide(); })
+            .on('error', function() { 
+              $("#loading_gif").hide();
+              $("#img_result").hide(); 
+              $("#error_message").show();});
   }
 
 
