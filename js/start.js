@@ -11,7 +11,8 @@ $(function () {
   
   //var baseURL = 'http://api.wolframalpha.com/v2/query?appid=' + apiKey + '&input=';
   //var restURL = '&format=plaintext&async=false&reinterpret=true';
-  
+  $('.modal').modal();
+
 	if (!('webkitSpeechRecognition' in window)){
 		console.log("no webkit");
 	} else {
@@ -47,7 +48,6 @@ $(function () {
   };
     recognition.onend = function() {
    	$("#status_label").html("Press the mic and speak");
-    if (final_transcript)
     
     //$("#img_result").attr("src", "img/loading.svg");
     recognizing = false;
@@ -140,12 +140,9 @@ $(function () {
       recognition.stop();
       $("#listen-btn").removeClass("red");
       $("#meme").attr('src', memeSrc);
-      var n = $(document).height();
-      $('html, body').animate({ scrollBottom: n }, 10);
-      $("#meme").animate({
-            height: 'toggle'
-        });
+      $("#meme").fadeIn(800);
       recognizing = false;
+      $('html,body').animate({scrollTop: $("#top_div").offset().top + "px"}, 800);
       $("#img_result").hide();
   }
   function cancelRequest() {
@@ -169,8 +166,21 @@ $(function () {
             .on('error', function() { 
               $("#loading_gif").hide();
               $("#img_result").hide(); 
-              $("#error_message").show();});
+              $("#error_message").show();
+            });
   }
+  $(window).scroll(function() {
+    if ($(this).scrollTop()) {
+        $('#top_btn:hidden').stop(true, true).fadeIn();
+    } else {
+        $('#top_btn').stop(true, true).fadeOut();
+    }
+  });
+
+  $("#top_btn").click(function(){
+    $('html, body').animate({scrollTop: '0px'}, 800);
+
+  });
 
 
 

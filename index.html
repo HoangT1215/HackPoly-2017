@@ -21,24 +21,41 @@
 
 </head>
 <body>
-<ul id="history_dropdown" class="dropdown-content">
+<!-- <ul id="history_dropdown" class="dropdown-content">
   <li><a href="">one</a></li>
   <li><a href="">two</a></li>
   <li class="divider"></li>
   <li><a href="">Clear</a></li>
-</ul>
+</ul> -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Try Saying:</h5>
+      <p>Hack Poly</p>
+      <p>President Trump</p>
+      <p>Etc</p>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
+    </div>
+  </div>
+
+
   <nav class="teal lighten-2" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Wolfram Speech</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="history_dropdown">History<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- <li><a class="dropdown-button" href="#!" data-activates="history_dropdown">History<i class="material-icons right">arrow_drop_down</i></a></li> -->
+        <li><a data-target="modal1" class = "modal-trigger">Press for Fun</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">History</a></li>
+        <li><a href="#">Press for fun</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  <div class="fixed-action-btn">
+    <a class="btn btn-medium teal lighten-2" id="top_btn">Top</a>
+  </div>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
@@ -84,7 +101,7 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Team Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project for HackPoly 2017.</p>
 
 
 
@@ -94,7 +111,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Team</a>
+      Made by <a class="orange-text text-lighten-3">Ebrahim Al-Kabodi, Huy-Hoang Nguyen, Long Le</a>
       </div>
     </div>
   </footer>
